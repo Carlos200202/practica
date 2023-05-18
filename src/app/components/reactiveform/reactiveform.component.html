@@ -1,0 +1,32 @@
+<p>reactiveform works!</p>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <form (ngSubmit)="process()" [formGroup]="formUser">
+        <div class="mb-2">
+          <label class="form-label">Name</label>
+          <input type="text" formControlName="name" name="name" class="form-control" placeholder="name">
+          <div class="alert alert-danger mt-2" [hidden]="name.valid || name.pristine">
+            required name
+          </div>
+        </div>
+        <div class="mb-2">
+          <label class="form-label">Email</label>
+          <input type="email" formControlName="email" name="email" class="form-control" placeholder="email">
+          <div class="alert alert-danger mt-2" [hidden]="email.valid || email.pristine">
+            <span *ngIf="email.errors?.['required']">
+              required email
+            </span>
+            <span *ngIf="email.errors?.['email']">
+              invalid email
+            </span>
+          </div>
+        </div>
+        <button type="submit" [disabled]="formUser.invalid" class="btn btn-primary">submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+{{name.value}}
+<br>
+{{email.errors | json}}

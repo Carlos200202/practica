@@ -1,0 +1,9 @@
+<p>buttons works!</p>
+<div class="">
+  <button [disabled]="button_disabled" (click)="text_color='red'" style="background: red;">red</button>
+  <button [disabled]="button_disabled" (click)="text_color='green'" style="background: green;">green</button>
+  <button [disabled]="button_disabled" (click)="text_color='blue'" style="background: blue;">blue</button>
+</div>
+<p [style.color]="text_color" >Dynamic Text</p>
+{{text_color}}
+<button (click)="button_disabled = !button_disabled"> active/disable</button>

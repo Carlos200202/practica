@@ -1,0 +1,23 @@
+<p>form works!</p>
+
+
+
+<form (ngSubmit)="procesar()" #formValid="ngForm">
+  <div class="">
+    <div class="" [hidden]="name.valid || name.pristine">
+      name is required
+    </div>
+    <label for="">name</label>
+    <input type="text" name="name" id="" placeholder="name" [(ngModel)]="credentials.name" required #name="ngModel">
+  </div>
+  <div class="">
+    <div class="" [hidden]="password.valid || password.pristine">
+      password is required
+    </div>
+    <label for="">password</label>
+    <input type="password" name="password" id="" placeholder="password" [(ngModel)]="credentials.password" required #password="ngModel">
+  </div>
+  <button type="submit" [disabled]="formValid.invalid">enviar</button>
+</form>
+{{credentials | json}}
+{{formValid.valid}}
